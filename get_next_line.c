@@ -6,7 +6,7 @@
 /*   By: maazizog <maazizog@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 20:02:49 by maazizog          #+#    #+#             */
-/*   Updated: 2026/05/29 18:03:06 by maazizog         ###   ########.fr       */
+/*   Updated: 2026/06/02 13:27:07 by maazizog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@ static char	*ft_read_and_save(int fd, char *saved)
 
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
-		return (NULL);
+		return (free(saved), saved = NULL, NULL);
 	bytes = 1;
 	while (!ft_find_newline(saved) && bytes > 0)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
-			return (free(buffer), free(saved), NULL);
+			return (free(buffer), buffer = NULL, saved = NULL, NULL);
 		buffer[bytes] = '\0';
 		if (bytes > 0)
 		{
 			tmp = ft_strjoin(saved, buffer);
 			free(saved);
+			saved = NULL;
 			saved = tmp;
 			if (!saved)
-				return (free(buffer), NULL);
+				return (free(buffer), buffer = NULL, NULL);
 		}
 	}
-	free(buffer);
-	return (saved);
+	return (free(buffer), buffer = NULL, saved);
 }
 
 static char	*ft_extract_line(char *saved)
@@ -70,17 +70,27 @@ char	*get_next_line(int fd)
 	char		*tmp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (free(saved), saved = NULL, NULL);
+	{
+		free(saved);
+		saved = NULL;
+		return (NULL);
+	}
 	saved = ft_read_and_save(fd, saved);
 	if (!saved)
 		return (NULL);
 	line = ft_extract_line(saved);
+	if (line == NULL)
+	{
+		free(saved);
+		saved = NULL;
+		return (NULL);
+	}
 	tmp = ft_save_remainder(saved);
 	free(saved);
 	saved = tmp;
 	return (line);
 }
-
+/*
 int	main(void)
 {
 	int		fd;
@@ -109,3 +119,4 @@ int	main(void)
 	printf("\nTotal lines read: %d\n\n", line_count);
 	return (0);
 }
+*/
