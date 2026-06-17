@@ -6,7 +6,7 @@
 /*   By: maazizog <maazizog@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 20:02:49 by maazizog          #+#    #+#             */
-/*   Updated: 2026/06/02 13:57:38 by maazizog         ###   ########.fr       */
+/*   Updated: 2026/06/17 20:42:09 by maazizog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,4 @@ int	main(void)
 	close(fd);
 	printf("\nTotal lines read: %d\n\n", line_count);
 	return (0);
-}
-*/
+}*/
