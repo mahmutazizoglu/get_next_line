@@ -16,11 +16,6 @@ The mandatory part includes:
 - `get_next_line_utils.c`
 - `get_next_line.h`
 
-it also includes:
-- `get_next_line_bonus.c`
-- `get_next_line_bonus.h`
-- `get_next_line_utils_bonus.c`
-
 ### Compilation
 
 Compile with a chosen buffer size using `-D BUFFER_SIZE=n`.
@@ -103,10 +98,6 @@ The static variable is the key design choice because each call to `get_next_line
   - saving the remainder.
 - Dynamic memory allocation is used for the buffer, returned line, and updated storage.
 - Memory is freed carefully to avoid leaks.
-
-## Bonus
-
-In the bonus version, the function can handle multiple file descriptors at the same time. This is usually done by storing a separate static stash for each file descriptor, so reading from one fd does not overwrite the state of another.
 
 ## Resources
 
