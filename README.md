@@ -22,7 +22,7 @@ Compile with a chosen buffer size using `-D BUFFER_SIZE=n`.
 
 Example:
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
 ```
 
 The project must also compile when `BUFFER_SIZE` is not explicitly provided, using a default value defined in the header.

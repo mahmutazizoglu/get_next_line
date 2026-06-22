@@ -6,7 +6,7 @@
 /*   By: maazizog <maazizog@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 20:02:49 by maazizog          #+#    #+#             */
-/*   Updated: 2026/06/22 15:47:32 by maazizog         ###   ########.fr       */
+/*   Updated: 2026/06/22 22:18:42 by maazizog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ char	*get_next_line(int fd)
 	saved = tmp;
 	return (line);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	int		fd;
 	char	*line;
@@ -118,4 +118,5 @@ int	main(void)
 	close(fd);
 	printf("\nTotal lines read: %d\n\n", line_count);
 	return (0);
-}*/
+}
+*/
