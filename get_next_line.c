@@ -6,7 +6,7 @@
 /*   By: maazizog <maazizog@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 20:02:49 by maazizog          #+#    #+#             */
-/*   Updated: 2026/06/17 20:42:09 by maazizog         ###   ########.fr       */
+/*   Updated: 2026/06/22 15:47:32 by maazizog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_read_and_save(int fd, char *saved)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
-			return (free(buffer), buffer = NULL, saved = NULL, NULL);
+			return (free(buffer), free(saved), NULL);
 		buffer[bytes] = '\0';
 		if (bytes > 0)
 		{
